@@ -12,10 +12,17 @@
 // 23432 -> да
 
 
-void Rivers(int number)
+int Palindrome(int number)
 {
-    if (number/10 == number/100000 && number/100 == number/10000) return Console.WriteLine("Да");
-    return Console.WriteLine("Нет");
+    int number5 = number%10;
+    int number1 = number/10000;
+    int number2 = number/1000%10;
+    int number4 = number/10%10;
+    
+    
+    if(number1==number5 && number2== number4) return number ;
+    
+    return 0;
     
 
     
@@ -24,9 +31,16 @@ void Rivers(int number)
 Console.Write("Ведите пятизначное  число:  ");
 int num = Convert.ToInt32(Console.ReadLine());
 
+if(num>99999|| num<10000) Console.WriteLine("Не верное значение");
+else
+{
+int palindrome =Palindrome(num);
+string result = palindrome == 0 ?"Не является палиндромом" : "Является палиндромом";
+
+Console.WriteLine(result);
+}
 
 
-if (num > 9999 && num<100000) Console.Write(Rivers(num));
 
 
 
